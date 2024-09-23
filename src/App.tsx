@@ -7,19 +7,20 @@ import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import { getPhotos } from "./apiService/gallery";
 import toast, { Toaster } from "react-hot-toast";
-import { useState, useEffect } from "react";
+import { FC, useState, useEffect } from "react";
+import { Images} from "./types";
 
-function App() {
-  const [query, setQuery] = useState("");
-  const [page, setPage] = useState(1);
-  const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(false);
+const App:FC = () => {
+  const [query, setQuery] = useState<string>("");
+  const [page, setPage] = useState<number>(1);
+  const [images, setImages] = useState<Images>([]);
+  const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState(null);
-  const [isEmpty, setIsEmpty] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const [modalUrl, setModalUrl] = useState("");
-  const [modalAlt, setModalAlt] = useState("");
+  const [isEmpty, setIsEmpty] = useState<boolean>(false);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [modalUrl, setModalUrl] = useState<string>("");
+  const [modalAlt, setModalAlt] = useState<string>("");
 
   useEffect(() => {
     if (!query) return;
@@ -32,7 +33,7 @@ function App() {
         }
         setImages((prevImages) => [...prevImages, ...results]);
         setIsVisible(page < total_pages);
-      } catch (error) {
+      } catch (error: any) {
         setError(error);
       } finally {
         setLoading(false);
@@ -48,7 +49,7 @@ function App() {
     });
   }, [images]);
 
-  const handleSubmit = (value) => {
+  const handleSubmit = (value: string): void => {
     setQuery(value);
     setImages([]);
     setPage(1);
@@ -58,10 +59,10 @@ function App() {
   };
 
   const loadMore = () => {
-    setPage((prevPage) => prevPage + 1);
+    setPage((prevPage: number) => prevPage + 1);
   };
 
-  const openModal = (url, alt) => {
+  const openModal = (url: string, alt: string): void => {
     setShowModal(true);
     setModalUrl(url);
     setModalAlt(alt);

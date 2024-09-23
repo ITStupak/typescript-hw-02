@@ -1,6 +1,13 @@
 import style from "./ErrorMessage.module.css";
+import { FC } from "react";
 
-const ErrorMessage = ({ children, textAlign = "", marginBottom = "0" }) => {
+export interface ErrorMessage {
+  children: any;
+  textAlign?: string;
+  marginBottom?: string;
+}
+
+const ErrorMessage:FC<ErrorMessage> = ({ children, textAlign = "", marginBottom = "0" }) => {
   return (
     <p
       className={[
