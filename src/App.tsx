@@ -8,7 +8,7 @@ import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import { getPhotos } from "./apiService/gallery";
 import toast, { Toaster } from "react-hot-toast";
 import { FC, useState, useEffect } from "react";
-import { Images} from "./types";
+import { Images } from "./types";
 
 const App:FC = () => {
   const [query, setQuery] = useState<string>("");
@@ -68,7 +68,7 @@ const App:FC = () => {
     setModalAlt(alt);
   };
 
-  const closeModal = () => {
+  const closeModal = (): void => {
     setShowModal(false);
     setModalUrl("");
     setModalAlt("");

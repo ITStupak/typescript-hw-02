@@ -8,3 +8,8 @@ export type Image = {
 };
 
 export type Images = Image[];
+
+export type ImageCardType = {
+  image: Image;
+  openModal: (url: string, alt: string) => void;
+};
