@@ -8,7 +8,7 @@ import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import { getPhotos } from "./apiService/gallery";
 import toast, { Toaster } from "react-hot-toast";
 import { FC, useState, useEffect } from "react";
-import { Images } from "./types";
+import { Images, Photo } from "./types";
 
 const App:FC = () => {
   const [query, setQuery] = useState<string>("");
@@ -90,7 +90,7 @@ const App:FC = () => {
       )}
       {loading && <Loader />}
       {error && (
-        <ErrorMessage textAlign="center">❌ Something went wrong </ErrorMessage>
+        <ErrorMessage textAlign="center">❌ Something went wrong</ErrorMessage>
       )}
       {isEmpty && (
         <ErrorMessage textAlign="center">

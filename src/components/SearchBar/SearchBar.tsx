@@ -1,13 +1,14 @@
 import css from "./SearchBar.module.css";
-import { useState } from "react";
+import { SearchBarType } from "../../types";
+import { ChangeEvent, FC, FormEvent, useState } from "react";
 
-const SearchBar = ({ onSubmit, toast }) => {
-  const [query, setQuery] = useState("");
+const SearchBar:FC<SearchBarType> = ({ onSubmit, toast }) => {
+  const [query, setQuery] = useState<string>("");
 
-  const handleChange = (evt) => {
+  const handleChange = (evt: ChangeEvent<HTMLInputElement>) => {
     setQuery(evt.target.value);
   };
-  const handleSubmit = (evt) => {
+  const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
     if (!query.trim()) {
       return toast.error("Cannot be empty");

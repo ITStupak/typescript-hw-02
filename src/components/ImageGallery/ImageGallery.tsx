@@ -1,7 +1,9 @@
 import css from "./ImageGallery.module.css";
 import ImageCard from "../ImageCard/ImageCard";
+import { FC } from "react";
+import { ImageGalleryType } from "../../types";
 
-const ImageGallery = ({ images, openModal }) => {
+const ImageGallery: FC<ImageGalleryType> = ({ images, openModal }) => {
   return (
     <>
       <ul className={css.gList}>
