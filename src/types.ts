@@ -8,18 +8,9 @@ export type Image = {
 };
 
 export type Images = Image[];
-
-export type Photo = {
-  id: string;
-  urls: {
-    regular: string;
-    small: string;
-  };
-  alt_description: string;
-}
   
 export type ResponseData = {
-  results: Photo[];
+  results: Image[];
   total: number;
   total_pages: number;
 }

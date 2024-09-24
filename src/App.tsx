@@ -8,12 +8,12 @@ import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import { getPhotos } from "./apiService/gallery";
 import toast, { Toaster } from "react-hot-toast";
 import { FC, useState, useEffect } from "react";
-import { Images, Photo } from "./types";
+import { Images, Image } from "./types";
 
 const App:FC = () => {
   const [query, setQuery] = useState<string>("");
   const [page, setPage] = useState<number>(1);
-  const [images, setImages] = useState<Images>([]);
+  const [images, setImages] = useState<Image[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState(null);
   const [isEmpty, setIsEmpty] = useState<boolean>(false);
